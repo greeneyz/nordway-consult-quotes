@@ -96,7 +96,7 @@ export function Configurator() {
                 active={d.id === disciplineId}
                 onClick={() => setDisciplineId(d.id)}
                 title={d.name}
-                note={`base ${euro(d.hourly)} / h`}
+                note={`${euro(Math.round(d.hourly * seniority.factor))} / h · ${seniority.name.toLowerCase()}`}
               />
             ))}
           </div>
