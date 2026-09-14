@@ -2,8 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { Configurator } from "@/components/site/Configurator";
-import { disciplines, euro } from "@/lib/pricing";
+import { disciplines, euro, seniorities } from "@/lib/pricing";
 import mark from "@/assets/nordway-mark.png";
+
+const minSeniorityFactor = Math.min(...seniorities.map((s) => s.factor));
+const minRate = Math.min(...disciplines.map((d) => d.hourly * minSeniorityFactor));
 
 export const Route = createFileRoute("/")({
   head: () => ({
