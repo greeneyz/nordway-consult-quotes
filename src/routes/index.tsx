@@ -2,8 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { Configurator } from "@/components/site/Configurator";
-import { disciplines, euro } from "@/lib/pricing";
+import { disciplines, euro, seniorities } from "@/lib/pricing";
 import mark from "@/assets/nordway-mark.png";
+
+const minSeniorityFactor = Math.min(...seniorities.map((s) => s.factor));
+const minRate = Math.min(...disciplines.map((d) => d.hourly * minSeniorityFactor));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -98,66 +101,49 @@ function Home() {
 
       <main className="mx-auto max-w-6xl px-6">
         {/* Hero */}
-        <section className="grid animate-rise gap-14 py-20 md:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <p className="eyebrow text-primary">Software development · Data engineering</p>
-            <h1 className="mt-6 text-balance font-display text-5xl font-semibold leading-[1.02] tracking-tight md:text-6xl">
-              Consulting with the <span className="text-aurora">price tag facing out</span>.
-            </h1>
-            <p className="mt-6 max-w-[52ch] text-pretty text-lg text-muted-foreground">
-              Nordway Consult is a Finnish engineering consultancy. Most firms hide their
-              rates behind a form. We put a configurator on the front page: choose the
-              discipline, the seniority and how many people you need, and see the hourly,
-              daily and monthly price — always plus VAT.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <a
-                href="#configure"
-                className="rounded-full bg-aurora px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
-              >
-                Configure your rate
-              </a>
-              <a
-                href="mailto:info@nordwayconsult.fi"
-                className="font-mono text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground"
-              >
-                info@nordwayconsult.fi
-              </a>
-            </div>
-            <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-6">
-              <div>
-                <dt className="eyebrow text-muted-foreground">From</dt>
-                <dd className="mt-1 font-mono text-xl">{euro(78)} / h</dd>
-              </div>
-              <div>
-                <dt className="eyebrow text-muted-foreground">VAT</dt>
-                <dd className="mt-1 font-mono text-xl">25.5 %</dd>
-              </div>
-              <div>
-                <dt className="eyebrow text-muted-foreground">Notice</dt>
-                <dd className="mt-1 font-mono text-xl">30 days</dd>
-              </div>
-            </dl>
+        <section className="animate-rise py-20 md:py-28">
+          <p className="eyebrow text-primary">Software development · Data engineering</p>
+          <h1 className="mt-6 max-w-[18ch] text-balance font-display text-5xl font-semibold leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
+            Consulting with the <span className="text-aurora">price tag facing out</span>.
+          </h1>
+          <p className="mt-6 max-w-[64ch] text-pretty text-lg text-muted-foreground md:text-xl">
+            Nordway Consult is a Finnish engineering consultancy. Most firms hide their rates
+            behind a form. We put a configurator on the front page: choose the discipline,
+            the seniority and how many people you need, and see the hourly, daily and monthly
+            price — always plus VAT.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-4">
+            <a
+              href="#configure"
+              className="rounded-full bg-aurora px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+            >
+              Configure your rate
+            </a>
+            <a
+              href="mailto:info@nordwayconsult.fi"
+              className="font-mono text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+            >
+              info@nordwayconsult.fi
+            </a>
           </div>
-
-          <div className="relative">
-            <div className="grid-lines absolute inset-0 -z-10 rounded-3xl opacity-40" />
-            <div className="rounded-3xl bg-surface/70 p-10 ring-1 ring-border shadow-panel backdrop-blur-sm">
-              <img
-                src={mark}
-                alt="Nordway Consult mark"
-                width={1024}
-                height={1024}
-                className="mx-auto w-40 md:w-52"
-              />
-              <p className="mt-8 text-center font-display text-2xl font-semibold tracking-tight">
-                Nordway Consult Oy
-              </p>
-              <p className="eyebrow mt-2 text-center text-muted-foreground">
-                Helsinki · Registered in Finland
-              </p>
+          <dl className="mt-14 grid grid-cols-2 gap-6 border-t border-border pt-6 md:grid-cols-4">
+            <div>
+              <dt className="eyebrow text-muted-foreground">From</dt>
+              <dd className="mt-1 font-mono text-xl">{euro(minRate)} / h</dd>
             </div>
-          </div>
+            <div>
+              <dt className="eyebrow text-muted-foreground">VAT</dt>
+              <dd className="mt-1 font-mono text-xl">25.5 %</dd>
+            </div>
+            <div>
+              <dt className="eyebrow text-muted-foreground">Notice</dt>
+              <dd className="mt-1 font-mono text-xl">30 days</dd>
+            </div>
+            <div>
+              <dt className="eyebrow text-muted-foreground">Location</dt>
+              <dd className="mt-1 font-mono text-xl">Helsinki</dd>
+            </div>
+          </dl>
         </section>
 
         {/* Configurator */}
