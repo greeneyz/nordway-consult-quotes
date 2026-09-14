@@ -26,7 +26,7 @@ export const disciplines: Discipline[] = [
     name: "Frontend engineering",
     blurb:
       "Product interfaces and design systems in any modern JavaScript framework, built to stay maintainable.",
-    hourly: 95,
+    hourly: 55,
     tech: ["React", "Next.js", "Vue / Nuxt", "Angular", "Svelte", "TypeScript"],
   },
   {
@@ -35,7 +35,7 @@ export const disciplines: Discipline[] = [
     name: "Backend & APIs",
     blurb:
       "Services, integrations and domain logic across five ecosystems — chosen to fit your team, not our habits.",
-    hourly: 105,
+    hourly: 60,
     tech: ["Python", "Node.js", "TypeScript", ".NET", "Java", "PostgreSQL"],
   },
   {
@@ -44,7 +44,7 @@ export const disciplines: Discipline[] = [
     name: "Cloud & CI/CD",
     blurb:
       "Infrastructure as code, delivery pipelines and platform hardening on the cloud you already run.",
-    hourly: 115,
+    hourly: 65,
     tech: ["AWS", "Azure", "GCP", "Kubernetes", "Terraform", "GitHub Actions"],
   },
   {
@@ -53,7 +53,7 @@ export const disciplines: Discipline[] = [
     name: "Data engineering",
     blurb:
       "Lakehouse architecture, orchestration and analytics pipelines that survive contact with real data.",
-    hourly: 120,
+    hourly: 70,
     tech: ["Databricks", "Microsoft Fabric", "Airflow", "dbt", "Delta Lake", "Kafka"],
   },
   {
@@ -62,7 +62,7 @@ export const disciplines: Discipline[] = [
     name: "Solution architecture",
     blurb:
       "Technical due diligence, modernisation roadmaps and architecture ownership for programmes in motion.",
-    hourly: 140,
+    hourly: 80,
     tech: ["Discovery", "Audits", "Migration plans", "Governance", "Security review"],
   },
 ];
@@ -70,9 +70,9 @@ export const disciplines: Discipline[] = [
 export type SeniorityId = "mid" | "senior" | "lead";
 
 export const seniorities: { id: SeniorityId; name: string; note: string; factor: number }[] = [
-  { id: "mid", name: "Mid", note: "3–5 yrs", factor: 0.82 },
+  { id: "mid", name: "Mid", note: "3–5 yrs", factor: 0.73 },
   { id: "senior", name: "Senior", note: "6–10 yrs", factor: 1 },
-  { id: "lead", name: "Lead", note: "10+ yrs", factor: 1.25 },
+  { id: "lead", name: "Lead", note: "10+ yrs", factor: 1.27 },
 ];
 
 export type ModeId = "placement" | "delivery";
