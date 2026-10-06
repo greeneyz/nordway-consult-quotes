@@ -92,15 +92,6 @@ export const modes: { id: ModeId; name: string; note: string; factor: number }[]
   },
 ];
 
-export function volumeDiscount(people: number): number {
-  if (people >= 6) return 0.09;
-  if (people >= 4) return 0.06;
-  if (people >= 2) return 0.03;
-  return 0;
-}
-
-export const MONTHLY_COMMITMENT_DISCOUNT = 0.08;
-
 export type Quote = {
   unitHourly: number;
   hourly: number;
@@ -108,7 +99,6 @@ export type Quote = {
   monthly: number;
   monthlyVat: number;
   monthlyGross: number;
-  discount: number;
 };
 
 export function calculateQuote(input: {
@@ -118,12 +108,10 @@ export function calculateQuote(input: {
   people: number;
 }): Quote {
   const { discipline, seniorityFactor, modeFactor, people } = input;
-  const discount = volumeDiscount(people);
-  const unitHourly =
-    discipline.hourly * seniorityFactor * modeFactor * (1 - discount);
+  const unitHourly = discipline.hourly * seniorityFactor * modeFactor;
   const hourly = unitHourly * people;
   const daily = hourly * HOURS_PER_DAY;
-  const monthly = hourly * HOURS_PER_MONTH * (1 - MONTHLY_COMMITMENT_DISCOUNT);
+  const monthly = hourly * HOURS_PER_MONTH;
   const monthlyVat = monthly * VAT_RATE;
 
   return {
@@ -133,7 +121,6 @@ export function calculateQuote(input: {
     monthly: Math.round(monthly),
     monthlyVat: Math.round(monthlyVat),
     monthlyGross: Math.round(monthly + monthlyVat),
-    discount,
   };
 }
 

@@ -6,7 +6,6 @@ import {
   HOURS_PER_DAY,
   HOURS_PER_MONTH,
   modes,
-  MONTHLY_COMMITMENT_DISCOUNT,
   seniorities,
   VAT_RATE,
   type DisciplineId,
@@ -121,9 +120,7 @@ export function Configurator() {
                 {people} {people === 1 ? "consultant" : "consultants"}
               </span>
               <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
-                {quote.discount > 0
-                  ? `${Math.round(quote.discount * 100)}% team discount applied`
-                  : "2+ people unlocks a team discount"}
+                Same rate for every consultant · nothing hidden
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -220,9 +217,8 @@ export function Configurator() {
           </div>
 
           <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-            Monthly rate includes a {Math.round(MONTHLY_COMMITMENT_DISCOUNT * 100)} %
-            commitment discount. Indicative pricing — confirmed in writing before any work
-            starts. VAT 0 % applies to valid EU reverse-charge customers outside Finland.
+            Indicative pricing — confirmed in writing before any work starts. VAT 0 % applies
+            to valid EU reverse-charge customers outside Finland.
           </p>
 
           <a

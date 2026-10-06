@@ -85,10 +85,6 @@ const faqs = [
     a: "Finnish VAT (ALV) of 25.5 % is added to all invoices for Finnish customers. VAT-registered business customers elsewhere in the EU are invoiced at 0 % under reverse charge.",
   },
   {
-    q: "Can we hire a consultant permanently later?",
-    a: "Yes. After six months of continuous assignment, transfer to your payroll is free of charge.",
-  },
-  {
     q: "What if we only need the work done, not the people?",
     a: "Choose 'We deliver the work' in the configurator. You get the same rates with project management, QA and delivery risk carried by us.",
   },
