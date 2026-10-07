@@ -23,7 +23,7 @@ export function SiteHeader() {
             <span className="block font-display text-[17px] font-semibold tracking-tight">
               Nordway Consult
             </span>
-            <span className="eyebrow block text-muted-foreground">Helsinki · Finland</span>
+            <span className="eyebrow block text-muted-foreground">Espoo · Finland</span>
           </span>
         </a>
 

@@ -137,7 +137,7 @@ function Home() {
             </div>
             <div>
               <dt className="eyebrow text-muted-foreground">Location</dt>
-              <dd className="mt-1 font-mono text-xl">Helsinki</dd>
+              <dd className="mt-1 font-mono text-xl">Espoo</dd>
             </div>
           </dl>
         </section>
@@ -280,7 +280,7 @@ function Home() {
             <p className="font-display text-sm font-semibold">Nordway Consult Oy</p>
           </div>
           <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-            Helsinki, Finland · All rates excl. VAT (ALV 25.5 %)
+            Espoo, Finland · All rates excl. VAT (ALV 25.5 %)
           </p>
           <a
             href="mailto:info@nordwayconsult.fi"
